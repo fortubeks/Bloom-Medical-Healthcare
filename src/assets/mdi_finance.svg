@@ -1,0 +1,11 @@
+<svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="mdi:finance">
+<path id="Vector" d="M22 60.5L11 71.28V40.3333H22M40.3333 53.7533L34.5767 48.84L29.3333 53.68V25.6667H40.3333M58.6667 47.6667L47.6667 58.6667V11H58.6667M68.97 46.97L62.3333 40.3333H80.6667V58.6667L74.1033 52.1033L47.6667 78.32L34.9433 67.2467L21.0833 80.6667H11L34.7233 57.42L47.6667 68.3467" fill="url(#paint0_linear_82_34)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_82_34" x1="45.8333" y1="11" x2="45.8333" y2="80.6667" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A54DE4"/>
+<stop offset="1" stop-color="#594EDC"/>
+</linearGradient>
+</defs>
+</svg>
