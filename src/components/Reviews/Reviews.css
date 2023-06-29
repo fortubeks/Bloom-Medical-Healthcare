@@ -78,9 +78,11 @@
 }
 
 @media screen and (max-width: 640px) {
+  .reviews {
+    padding: 0;
+  }
   .reviews > h1 {
     font-size: 2.2rem;
-    margin-left: 0;
   }
 
   .reviews__review {

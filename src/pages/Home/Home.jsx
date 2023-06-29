@@ -1,7 +1,14 @@
 import './Home.css';
-import { Navbar, Reviews, Services } from '../../components';
+import {
+  About,
+  Blog,
+  Navbar,
+  Partners,
+  Reviews,
+  Services,
+  Team,
+} from '../../components';
 import arrow from '../../assets/arrowDown.svg';
-import About from '../../components/About/About';
 
 const Home = () => {
   return (
@@ -29,6 +36,9 @@ const Home = () => {
       <About />
       <Services />
       <Reviews />
+      <Blog />
+      <Team />
+      <Partners />
     </>
   );
 };
