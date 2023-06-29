@@ -1,5 +1,5 @@
 import './Home.css';
-import { Navbar, Services } from '../../components';
+import { Navbar, Reviews, Services } from '../../components';
 import arrow from '../../assets/arrowDown.svg';
 import About from '../../components/About/About';
 
@@ -9,7 +9,10 @@ const Home = () => {
       <div className="home" id="home">
         <Navbar />
         <div className="home__header">
-          <h1>YOUR MEDICAL PRACTICE MADE EASY</h1>
+          <h1>
+            YOUR MEDICAL
+            <br /> PRACTICE MADE EASY
+          </h1>
 
           <div className="home__description">
             <p>
@@ -25,6 +28,7 @@ const Home = () => {
       </div>
       <About />
       <Services />
+      <Reviews />
     </>
   );
 };

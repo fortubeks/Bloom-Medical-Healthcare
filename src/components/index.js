@@ -8,5 +8,6 @@ import Footer from './Footer/Footer';
 import About from './About/About';
 import Contact from './Contact/Contact';
 import Services from './Services/Services';
+import Reviews from './Reviews/Reviews';
 
-export { Footer, Navbar, About, Contact, Services };
+export { Footer, Navbar, About, Contact, Services, Reviews };
