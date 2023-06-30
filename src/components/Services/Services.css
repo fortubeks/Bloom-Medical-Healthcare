@@ -147,6 +147,67 @@
   font-weight: 500;
 }
 
+@media screen and (max-width: 800px) and (min-width: 641px) {
+  .services__contact {
+    padding: 2rem;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .services__contact__info {
+    order: 2;
+    align-items: center;
+  }
+
+  .services__contact__info > h2 {
+    text-align: center;
+  }
+
+  .services__contact__image {
+    order: 1;
+  }
+
+  .services__contact__image > img {
+    height: 20rem;
+  }
+
+  .services__service {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .services__service__card {
+    width: 28rem;
+  }
+
+  .services__info {
+    flex-direction: column;
+    padding: 4rem;
+    background-size: cover;
+    height: 100vh;
+  }
+
+  .services__info > p {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .services__info__numbers {
+    flex-direction: column;
+    margin-top: 3rem;
+    margin-left: 3rem;
+    gap: 4rem;
+  }
+
+  .services__info__numbers > span > h2 {
+    font-size: 8rem;
+  }
+
+  .services__info__numbers > span > p {
+    font-size: 2rem;
+  }
+}
+
 @media screen and (max-width: 640px) {
   .services > h1 {
     margin-left: 2rem;

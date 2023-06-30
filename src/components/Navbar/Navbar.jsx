@@ -2,10 +2,10 @@ import { useState } from 'react';
 import './Navbar.css';
 import { IconButton, useMediaQuery } from '@mui/material';
 import { Close, DragHandle } from '@mui/icons-material';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/logo.svg';
 
-const Navbar = () => {
+const Navbar = ({ hideLinks }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const isMobileScreens = useMediaQuery('(max-width: 600px)');
@@ -22,20 +22,33 @@ const Navbar = () => {
         </div>
 
         <div className="navbar__links">
-          <ul>
-            <li>
-              <Link to="#about">About</Link>
-            </li>
-            <li>
-              <Link to="/blog">Blog</Link>
-            </li>
-            <li>
-              <Link to="#contact">Contact</Link>
-            </li>
-            <li>
-              <Link to="/pricing">Pricing</Link>
-            </li>
-          </ul>
+          {!hideLinks && (
+            <ul>
+              <li>
+                <NavLink
+                  to="/"
+                  onClick={() => {
+                    const aboutSection = document.getElementById('about');
+                    if (aboutSection) {
+                      aboutSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  About
+                </NavLink>
+              </li>
+              <li>
+                <Link to="/blog">Blog</Link>
+              </li>
+              <li>
+                <Link to="#contact">Contact</Link>
+              </li>
+              <li>
+                <Link to="/pricing">Pricing</Link>
+              </li>
+            </ul>
+          )}
+
           <button
             className="navbar__links__button"
             onClick={() => navigate('/register')}
@@ -53,27 +66,36 @@ const Navbar = () => {
 
           {isMenuOpen && (
             <>
-              <div className="navbar__mobile__overlay slide__bottom">
+              <div
+                className={`${
+                  hideLinks
+                    ? 'new__navbar__mobile__overlay slide__bottom'
+                    : 'navbar__mobile__overlay slide__bottom'
+                }`}
+              >
                 <div className="navbar__mobile__icon">
                   <IconButton className="navbar__mobile__icon__button">
                     <Close onClick={() => setMenuOpen(false)} />
                   </IconButton>
                 </div>
                 <div className="navbar__mobile__links">
-                  <ul>
-                    <li>
-                      <Link to="/about">About</Link>
-                    </li>
-                    <li>
-                      <Link to="/blog">Blog</Link>
-                    </li>
-                    <li>
-                      <Link to="/contact">Contact</Link>
-                    </li>
-                    <li>
-                      <Link to="/pricing">Pricing</Link>
-                    </li>
-                  </ul>
+                  {!hideLinks && (
+                    <ul>
+                      <li>
+                        <Link to="/about">About</Link>
+                      </li>
+                      <li>
+                        <Link to="/blog">Blog</Link>
+                      </li>
+                      <li>
+                        <Link to="/contact">Contact</Link>
+                      </li>
+                      <li>
+                        <Link to="/pricing">Pricing</Link>
+                      </li>
+                    </ul>
+                  )}
+
                   <button
                     className="navbar__links__button"
                     onClick={() => navigate('/register')}
