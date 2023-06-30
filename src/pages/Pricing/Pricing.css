@@ -1,14 +1,16 @@
 .pricing {
   display: flex;
   flex-direction: column;
+  margin-bottom: 10rem;
 }
 
 .pricing__header {
   background: linear-gradient(180deg, #a54de4 0%, #594edc 100%);
+  height: 100vh;
 }
 
 .pricing__header__text {
-  margin-top: 20rem;
+  margin-top: 50vh;
   padding: 3rem 4rem;
   display: flex;
   justify-content: space-between;
@@ -28,22 +30,178 @@
 
 .pricing__body {
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  margin-top: 7rem;
+}
+
+.pricing__body > h1 {
+  text-align: left;
+  font-size: 4rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.pricing__body > h6 {
+  text-align: left;
+  color: #1a1a1a;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.pricing__body__packages {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.pricing__body__packages__card {
+  margin-top: 4rem;
+  flex: 1;
+  padding: 2rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  background: #fff;
+  box-shadow: 0px 8px 50px 0px rgba(104, 103, 103, 0.25);
+}
+
+.pricing__body__packages__card > h3 {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.pricing__body__packages__card > h4 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.pricing__body__packages__card > h5 {
+  text-align: center;
+  font-size: 1.9rem;
+  font-weight: 400;
+}
+
+.pricing__body__packages__card > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pricing__body__packages__card > span > p {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #a54de4; /* in case some browsers do nott understand the other css color codes */
+  background-image: linear-gradient(to right, #a54de4, #594edc);
+  background-clip: text;
+  -webkit-background-clip: text; /* For Safari */
+  color: transparent;
+}
+
+.pricing__body__packages__card > button {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  color: #1a1a1a;
+  border-radius: 1.5rem;
+  padding: 1.6rem;
+  border: 1px solid #a54de4;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.pricing__body__packages__card > button:hover {
+  color: #fff;
+  transform: scale(1.05);
+  transition: 0.8s all ease-in-out;
+  background: linear-gradient(180deg, #a54de4 0%, #594edc 100%);
+  border: none;
+}
+
+.pricing__body__packages__card > ul {
+  list-style-type: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pricing__body__packages__card > ul > li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.pricing__body__packages__card > ul > li > p {
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: left;
 }
 
 @media screen and (min-width: 541px) and (max-width: 900px) {
   .pricing__header__text {
-    margin-top: 10rem;
     padding: 2rem;
   }
 
   .pricing__header__text > h1 {
     font-size: 4rem;
   }
+
+  .pricing__body > h1 {
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  .pricing__body > h6 {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  .pricing__body__packages {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .pricing__body__packages__card > h3 {
+    font-size: 2.5rem;
+  }
+
+  .pricing__body__packages__card > h4 {
+    font-size: 1.6rem;
+  }
+
+  .pricing__body__packages__card > h5 {
+    font-size: 1.7rem;
+  }
+
+  .pricing__body__packages__card > span > p {
+    font-size: 4rem;
+  }
+
+  .pricing__body__packages__card > button {
+    font-size: 1.6rem;
+    padding: 1.4rem;
+  }
+
+  .pricing__body__packages__card > ul > li > p {
+    font-size: 1.4rem;
+  }
+
+  .pricing__body__packages__card > ul > li > img {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 
 @media screen and (max-width: 540px) {
   .pricing__header__text {
-    margin-top: 12rem;
     padding: 2rem;
   }
 
@@ -53,5 +211,60 @@
 
   .pricing__header__icon {
     display: none;
+  }
+
+  .pricing__body {
+    padding: 1rem;
+  }
+
+  .pricing__body > h1 {
+    text-align: center;
+    font-size: 2.2rem;
+  }
+
+  .pricing__body > h6 {
+    text-align: center;
+    font-size: 1.6rem;
+  }
+
+  .pricing__body__packages {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .pricing__body__packages__card {
+    margin-top: 2rem;
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+
+  .pricing__body__packages__card > h3 {
+    font-size: 2rem;
+  }
+
+  .pricing__body__packages__card > h4 {
+    font-size: 1.4rem;
+  }
+
+  .pricing__body__packages__card > h5 {
+    font-size: 1.5rem;
+  }
+
+  .pricing__body__packages__card > span > p {
+    font-size: 3rem;
+  }
+
+  .pricing__body__packages__card > button {
+    font-size: 1.4rem;
+    padding: 1rem;
+  }
+
+  .pricing__body__packages__card > ul > li > p {
+    font-size: 1.2rem;
+  }
+
+  .pricing__body__packages__card > ul > li > img {
+    width: 2rem;
+    height: 2rem;
   }
 }

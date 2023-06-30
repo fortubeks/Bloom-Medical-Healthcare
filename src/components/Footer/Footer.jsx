@@ -7,7 +7,7 @@ import whatsapp from '../../assets/whatsapp.svg';
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <div className="footer" id="contact">
       <h1>BLOOM</h1>
       <h4>Want to connect with us?</h4>
       <span>

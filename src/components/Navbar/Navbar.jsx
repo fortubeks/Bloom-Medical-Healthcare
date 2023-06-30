@@ -41,7 +41,17 @@ const Navbar = ({ hideLinks }) => {
                 <Link to="/blog">Blog</Link>
               </li>
               <li>
-                <Link to="#contact">Contact</Link>
+                <NavLink
+                  to="/"
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  Contact
+                </NavLink>
               </li>
               <li>
                 <Link to="/pricing">Pricing</Link>
