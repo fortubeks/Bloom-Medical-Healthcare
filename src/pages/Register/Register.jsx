@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import './Register.css';
+import Form from '../../components/Form/Form';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -10,11 +11,7 @@ const Register = () => {
         <button onClick={() => navigate('/login')}>Login</button>
       </div>
       <div className="register__body">
-        <div className="register__body__card">
-          <h4>Welcome to BLOOM</h4>
-          <h5>Sign up for free Demo</h5>
-          <button>Sign up with Google</button>
-        </div>
+        <Form />
       </div>
     </div>
   );

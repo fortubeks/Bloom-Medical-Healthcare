@@ -12,6 +12,7 @@ import Reviews from './Reviews/Reviews';
 import Blog from './Blog/Blog';
 import Team from './Team/Team';
 import Partners from './Partners/Partners';
+import Form from './Form/Form';
 
 export {
   Footer,
@@ -23,4 +24,5 @@ export {
   Blog,
   Team,
   Partners,
+  Form,
 };
