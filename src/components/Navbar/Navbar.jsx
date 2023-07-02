@@ -38,7 +38,13 @@ const Navbar = ({ hideLinks }) => {
                 </NavLink>
               </li>
               <li>
-                <Link to="/blog">Blog</Link>
+                <a
+                  href="http://app.bloomsoft.co"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Blog
+                </a>
               </li>
               <li>
                 <NavLink
@@ -95,7 +101,13 @@ const Navbar = ({ hideLinks }) => {
                         <Link to="/about">About</Link>
                       </li>
                       <li>
-                        <Link to="/blog">Blog</Link>
+                        <a
+                          href="http://app.bloomsoft.co"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Blog
+                        </a>
                       </li>
                       <li>
                         <Link to="/contact">Contact</Link>
