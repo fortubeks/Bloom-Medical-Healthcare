@@ -104,6 +104,7 @@ const Navbar = ({ hideLinks }) => {
                             const aboutSection =
                               document.getElementById('about');
                             if (aboutSection) {
+                              setMenuOpen(false);
                               aboutSection.scrollIntoView({
                                 behavior: 'smooth',
                               });
@@ -129,6 +130,7 @@ const Navbar = ({ hideLinks }) => {
                             const contactSection =
                               document.getElementById('contact');
                             if (contactSection) {
+                              setMenuOpen(false);
                               contactSection.scrollIntoView({
                                 behavior: 'smooth',
                               });
