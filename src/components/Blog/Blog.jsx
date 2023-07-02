@@ -4,6 +4,12 @@ import blog2 from '../../assets/blog2.png';
 import blog3 from '../../assets/blog3.png';
 
 const Blog = () => {
+  const goToBlogSite = () => {
+    const url = 'http://app.bloomsoft.co';
+    const newTab = window.open(url, '_blank');
+    newTab.focus();
+  };
+
   return (
     <div className="blog">
       <div className="blog__header">
@@ -36,7 +42,9 @@ const Blog = () => {
           </p>
         </div>
       </div>
-      <button className="blog__button">Visit Blog</button>
+      <button className="blog__button" onClick={goToBlogSite}>
+        Visit Blog
+      </button>
     </div>
   );
 };
