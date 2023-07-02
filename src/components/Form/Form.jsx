@@ -1,8 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import './Form.css';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import google from '../../assets/google.svg';
 import { TextField, styled } from '@mui/material';
 
@@ -66,13 +66,13 @@ const CustomTextField = styled(TextField)({
 });
 
 const Form = ({ register, login }) => {
-  const user = useSelector((state) => state.user);
+  // const user = useSelector((state) => state.user);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const handleFormSubmit = (values, onSubmitProps) => {
+  const handleFormSubmit = (onSubmitProps) => {
     onSubmitProps.resetForm();
   };
 
