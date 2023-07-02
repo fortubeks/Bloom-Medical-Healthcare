@@ -3,8 +3,12 @@ import { Navbar } from '../../components';
 import arrow from '../../assets/arrowDown.svg';
 import good from '../../assets/good.svg';
 import bad from '../../assets/bad.svg';
+import { useEffect } from 'react';
 
 const Pricing = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top of the pricing page
+  }, []);
   return (
     <div className="pricing">
       <div className="pricing__header">

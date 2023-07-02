@@ -3,7 +3,6 @@ import './Navbar.css';
 import { IconButton, useMediaQuery } from '@mui/material';
 import { Close, DragHandle } from '@mui/icons-material';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Link as ScrollLink } from 'react-scroll';
 import Logo from '../../assets/logo.svg';
 
 const Navbar = ({ hideLinks }) => {
@@ -61,9 +60,7 @@ const Navbar = ({ hideLinks }) => {
                 </NavLink>
               </li>
               <li>
-                <ScrollLink to="pricing" smooth={true} duration={500}>
-                  Pricing
-                </ScrollLink>
+                <Link to="/pricing">Pricing</Link>
               </li>
             </ul>
           )}
@@ -144,9 +141,7 @@ const Navbar = ({ hideLinks }) => {
                         </NavLink>
                       </li>
                       <li>
-                        <ScrollLink to="pricing" smooth={true} duration={500}>
-                          Pricing
-                        </ScrollLink>
+                        <Link to="/pricing">Pricing</Link>
                       </li>
                     </ul>
                   )}
