@@ -75,8 +75,11 @@ const Navbar = ({ hideLinks }) => {
 
         <div className="navbar__mobile">
           <div className="navbar__mobile__icon">
-            <IconButton className="navbar__mobile__icon__button">
-              <DragHandle onClick={() => setMenuOpen(true)} />
+            <IconButton
+              className="navbar__mobile__icon__button"
+              onClick={() => setMenuOpen(true)}
+            >
+              <DragHandle />
             </IconButton>
           </div>
 
@@ -90,8 +93,11 @@ const Navbar = ({ hideLinks }) => {
                 }`}
               >
                 <div className="navbar__mobile__icon">
-                  <IconButton className="navbar__mobile__icon__button">
-                    <Close onClick={() => setMenuOpen(false)} />
+                  <IconButton
+                    className="navbar__mobile__icon__button"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    <Close />
                   </IconButton>
                 </div>
                 <div className="navbar__mobile__links">

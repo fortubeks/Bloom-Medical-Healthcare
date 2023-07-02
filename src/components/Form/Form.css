@@ -73,6 +73,18 @@
   gap: 1.5rem;
 }
 
+.form__inputs > p {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #838383;
+  text-align: left;
+  cursor: pointer;
+}
+
+.form__inputs > p:hover {
+  color: #594edc;
+}
+
 .form__button {
   margin-top: 3rem;
 }
@@ -94,6 +106,14 @@
 .form__button > button:hover {
   transform: scale(1.04);
   transition: 0.7s all ease-in-out;
+}
+
+.form__button > button:disabled,
+.form__button > button[disabled] {
+  cursor: not-allowed;
+  background: #838383;
+  pointer-events: none;
+  color: white;
 }
 
 @media screen and (max-width: 540px) {

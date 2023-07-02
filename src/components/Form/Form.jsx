@@ -2,7 +2,7 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import './Form.css';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import google from '../../assets/google.svg';
 import { TextField, styled } from '@mui/material';
 
@@ -70,10 +70,10 @@ const Form = ({ register, login }) => {
 
   // const dispatch = useDispatch();
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const handleFormSubmit = (onSubmitProps) => {
-    onSubmitProps.resetForm();
+  const handleFormSubmit = (values, { resetForm }) => {
+    resetForm();
   };
 
   return (
@@ -88,7 +88,9 @@ const Form = ({ register, login }) => {
       </button>
 
       <Formik
-        onSubmit={handleFormSubmit}
+        onSubmit={(values, formikBag) => {
+          handleFormSubmit(values, formikBag);
+        }}
         initialValues={login ? initialValuesLogin : initialValuesRegister}
         validationSchema={login ? loginSchema : registerSchema}
       >
@@ -99,6 +101,8 @@ const Form = ({ register, login }) => {
           handleBlur,
           handleChange,
           handleSubmit,
+          isSubmitting,
+          isValid,
         }) => (
           <form onSubmit={handleSubmit}>
             <div className="form__inputs">
@@ -178,11 +182,19 @@ const Form = ({ register, login }) => {
                 }}
                 fullWidth
               />
+
+              {login && (
+                <p onClick={() => navigate('/forgotPassword')}>
+                  Forgot Password?
+                </p>
+              )}
             </div>
 
             {/* BUTTONS */}
             <div className="form__button">
-              <button type="submit">{login ? 'Sign In' : 'Book Demo'}</button>
+              <button type="submit" disabled={!isValid || isSubmitting}>
+                {login ? 'Sign In' : 'Book Demo'}
+              </button>
             </div>
           </form>
         )}

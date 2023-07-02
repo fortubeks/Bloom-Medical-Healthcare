@@ -10,5 +10,6 @@
 import Pricing from './Pricing/Pricing';
 import Register from './Register/Register';
 import Login from './Login/Login';
+import ForgotPassword from './ForgotPassword/ForgotPassword';
 
-export { Pricing, Register, Login };
+export { Pricing, Register, Login, ForgotPassword };

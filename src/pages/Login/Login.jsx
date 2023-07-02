@@ -3,11 +3,16 @@ import { useMediaQuery } from '@mui/material';
 import logo from '../../assets/logo2.svg';
 import { useNavigate } from 'react-router-dom';
 import Form from '../../components/Form/Form';
+import { useEffect } from 'react';
 
 const Login = () => {
   const navigate = useNavigate();
 
   const isMobileScreens = useMediaQuery('(max-width: 540px)');
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top of the pricing page
+  }, []);
   return (
     <div className="login">
       <div className="login__header">
