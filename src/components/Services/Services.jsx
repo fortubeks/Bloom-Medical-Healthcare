@@ -15,7 +15,7 @@ const Services = () => {
       <div className="services__contact">
         <div className="services__contact__info">
           <h2>
-            Seemless Service <br /> to transform your business
+            Seamless Service <br /> to transform your business
           </h2>
           <span onClick={() => navigate('#about')}>
             <p>Contact Us</p>
