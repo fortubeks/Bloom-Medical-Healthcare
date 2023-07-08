@@ -1,14 +1,15 @@
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import './Form.css';
 import { useNavigate } from 'react-router-dom';
 import google from '../../assets/google.svg';
 import { TextField, styled } from '@mui/material';
+import { setUser } from '../../state/userSlice';
 
 const registerSchema = yup.object().shape({
   name: yup.string().required('Please enter your name'),
-  clientName: yup.string().required('Client name is required'),
+  clinic_name: yup.string().required('Client name is required'),
   email: yup
     .string()
     .email('Invalid email')
@@ -40,7 +41,7 @@ const loginSchema = yup.object().shape({
 
 const initialValuesRegister = {
   name: '', //property names here has to align with the 'name' property in the input or in our case input tags
-  clientName: '',
+  clinic_name: '',
   email: '',
   password: '',
   //   confirmPassword: '',
@@ -66,14 +67,45 @@ const CustomTextField = styled(TextField)({
 });
 
 const Form = ({ register, login }) => {
-  // const user = useSelector((state) => state.user);
-
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
-  const handleFormSubmit = (values, { resetForm }) => {
-    resetForm();
+  const registerUser = async (values, onSubmitProps) => {
+    const savedUserResponse = await fetch(process.env.REACT_APP_SERVER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(values),
+    });
+    const savedUser = await savedUserResponse.json();
+
+    onSubmitProps.resetForm();
+
+    if (savedUser) {
+      navigate('login');
+    }
+  };
+
+  const loginUser = async (values, onSubmitProps) => {
+    const loggedInResponse = await fetch(process.env.REACT_APP_SERVER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(values),
+    });
+
+    const loggedInUser = await loggedInResponse.json();
+
+    onSubmitProps.resetForm();
+
+    if (loggedInUser) {
+      dispatch(setUser(loggedInUser));
+      navigate('/');
+    }
+  };
+
+  const handleFormSubmit = async (values, onSubmitProps) => {
+    if (register) await registerUser(values, onSubmitProps);
+    if (login) await loginUser(values, onSubmitProps);
   };
 
   return (
@@ -88,9 +120,7 @@ const Form = ({ register, login }) => {
       </button>
 
       <Formik
-        onSubmit={(values, formikBag) => {
-          handleFormSubmit(values, formikBag);
-        }}
+        onSubmit={handleFormSubmit}
         initialValues={login ? initialValuesLogin : initialValuesRegister}
         validationSchema={login ? loginSchema : registerSchema}
       >
@@ -122,19 +152,20 @@ const Form = ({ register, login }) => {
                     className="textField"
                     fullWidth
                   />
-                  <label htmlFor="clientName" style={{ fontSize: '1.2rem' }}>
+                  <label htmlFor="clinic_name" style={{ fontSize: '1.2rem' }}>
                     Client Name
                   </label>
                   <CustomTextField
                     label="Enter client name"
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    value={values.clientName}
-                    name="clientName"
+                    value={values.clinic_name}
+                    name="clinic_name"
                     error={
-                      Boolean(touched.clientName) && Boolean(errors.clientName)
+                      Boolean(touched.clinic_name) &&
+                      Boolean(errors.clinic_name)
                     }
-                    helperText={touched.clientName && errors.clientName}
+                    helperText={touched.clinic_name && errors.clinic_name}
                     fullWidth
                   />
                   <label htmlFor="phone" style={{ fontSize: '1.2rem' }}>
