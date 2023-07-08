@@ -3,9 +3,11 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import './Form.css';
 import { useNavigate } from 'react-router-dom';
-import google from '../../assets/google.svg';
-import { TextField, styled } from '@mui/material';
+// import google from '../../assets/google.svg';
+import { TextField, styled, Modal, Box } from '@mui/material';
 import { setUser } from '../../state/userSlice';
+import { useState } from 'react';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 const registerSchema = yup.object().shape({
   name: yup.string().required('Please enter your name'),
@@ -14,13 +16,13 @@ const registerSchema = yup.object().shape({
     .string()
     .email('Invalid email')
     .required('Please enter your email address'),
-  password: yup
-    .string()
-    .required('Please enter your password')
-    .min(
-      8,
-      'Your password is too short. Please enter a minimum of 8 characters'
-    ),
+  // password: yup
+  //   .string()
+  //   .required('Please enter your password')
+  //   .min(
+  //     8,
+  //     'Your password is too short. Please enter a minimum of 8 characters'
+  //   ),
   //   confirmPassword: yup
   //     .string()
   //     .oneOf([yup.ref('password'), ''], 'Passwords must match')
@@ -43,7 +45,7 @@ const initialValuesRegister = {
   name: '', //property names here has to align with the 'name' property in the input or in our case input tags
   clinic_name: '',
   email: '',
-  password: '',
+  // password: '',
   //   confirmPassword: '',
   phone: '',
 };
@@ -71,6 +73,8 @@ const Form = ({ register, login }) => {
 
   const navigate = useNavigate();
 
+  const [open, setOpen] = useState(false);
+
   const registerUser = async (values, onSubmitProps) => {
     const savedUserResponse = await fetch(process.env.REACT_APP_SERVER_URL, {
       method: 'POST',
@@ -82,7 +86,8 @@ const Form = ({ register, login }) => {
     onSubmitProps.resetForm();
 
     if (savedUser) {
-      navigate('login');
+      dispatch(setUser(savedUser));
+      setOpen(true);
     }
   };
 
@@ -99,7 +104,7 @@ const Form = ({ register, login }) => {
 
     if (loggedInUser) {
       dispatch(setUser(loggedInUser));
-      navigate('/');
+      setOpen(true);
     }
   };
 
@@ -108,16 +113,82 @@ const Form = ({ register, login }) => {
     if (login) await loginUser(values, onSubmitProps);
   };
 
+  const style = {
+    position: 'absolute',
+    top: '50vh',
+    left: '50vw',
+    transform: 'translate(-50%, -50%)',
+    width: '70vw',
+    bgcolor: '#a54de4',
+    border: '1px solid #a54de4 ',
+    borderRadius: '10px',
+    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    p: 3,
+  };
+
   return (
     <div className="form">
+      <Modal
+        open={open}
+        onClose={() => {
+          setOpen(false);
+          navigate('/');
+        }}
+      >
+        <Box sx={style}>
+          <center>
+            <CheckCircleOutlineIcon
+              sx={{ width: '3rem', height: '3rem', color: 'white' }}
+            />
+            <h1
+              style={{
+                fontSize: '1.6rem',
+                fontWeight: '500',
+                marginBottom: '1rem',
+                color: 'white',
+              }}
+            >
+              Registration successful!
+            </h1>
+            <h1
+              style={{
+                fontSize: '1.6rem',
+                fontWeight: '500',
+                marginBottom: '1rem',
+                color: 'white',
+              }}
+            >
+              Our team will contact you soon for account activation
+            </h1>
+            <button
+              onClick={() => {
+                setOpen(false);
+                navigate('/');
+              }}
+              style={{
+                padding: '1rem 2rem',
+                color: 'red',
+                backgroundColor: 'white',
+                borderRadius: '3rem',
+                border: 'none',
+                marginTop: '1.2rem',
+                cursor: 'pointer',
+                width: 'fit-content',
+              }}
+            >
+              Close Modal
+            </button>
+          </center>
+        </Box>
+      </Modal>
       <h4>
         Welcome to <span>BLOOM</span>
       </h4>
       <h5>{login ? 'Sign in to demo' : 'Sign up for free Demo'}</h5>
-      <button>
+      {/* <button>
         <img src={google} alt="google icon" />
         {login ? 'Sign in with Google' : 'Sign up with Google'}
-      </button>
+      </button> */}
 
       <Formik
         onSubmit={handleFormSubmit}
@@ -196,7 +267,7 @@ const Form = ({ register, login }) => {
                 helperText={touched.email && errors.email}
                 fullWidth
               />
-              <label htmlFor="password" style={{ fontSize: '1.2rem' }}>
+              {/* <label htmlFor="password" style={{ fontSize: '1.2rem' }}>
                 Password
               </label>
               <CustomTextField
@@ -212,7 +283,7 @@ const Form = ({ register, login }) => {
                   backgroundColor: '#F7F7F7',
                 }}
                 fullWidth
-              />
+              /> */}
 
               {login && (
                 <p onClick={() => navigate('/forgotPassword')}>

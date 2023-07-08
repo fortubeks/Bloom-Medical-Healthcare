@@ -21,7 +21,7 @@ const Register = () => {
           <h1 onClick={() => navigate('/')}>
             {isMobileScreens ? <img src={logo} alt="logo" /> : 'BLOOM'}
           </h1>
-          <button onClick={() => navigate('/login')}>Login</button>
+          {/* <button onClick={() => navigate('/login')}>Login</button> */}
         </div>
       </div>
       <div className="register__body">

@@ -3,8 +3,11 @@ import { Navbar } from '../../components';
 import arrow from '../../assets/arrowDown.svg';
 import good from '../../assets/good.svg';
 import bad from '../../assets/bad.svg';
+import { useNavigate } from 'react-router-dom';
 
 const Pricing = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="pricing">
       <div className="pricing__header">
@@ -39,7 +42,7 @@ const Pricing = () => {
                 <sub>/yr</sub>
               </p>
             </span>
-            <button>Buy Now</button>
+            <button onClick={() => navigate('/register')}>Buy Now</button>
             <h5>Plan Includes</h5>
             <ul>
               <li>
@@ -88,12 +91,12 @@ const Pricing = () => {
               <p>
                 <sup>₦</sup>
               </p>
-              <p>100k</p>
+              <p>150k</p>
               <p>
                 <sub>/yr</sub>
               </p>
             </span>
-            <button>Buy Now</button>
+            <button onClick={() => navigate('/register')}>Buy Now</button>
             <h5>Plan Includes</h5>
             <ul>
               <li>
@@ -142,12 +145,12 @@ const Pricing = () => {
               <p>
                 <sup>₦</sup>
               </p>
-              <p>170k</p>
+              <p>250k</p>
               <p>
                 <sub>/yr</sub>
               </p>
             </span>
-            <button>Buy Now</button>
+            <button onClick={() => navigate('/register')}>Buy Now</button>
             <h5>Plan Includes</h5>
             <ul>
               <li>
