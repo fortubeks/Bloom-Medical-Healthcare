@@ -35,21 +35,22 @@
   color: white;
 }
 
-.services__contact__info > span {
+.services__contact__info > span > a {
   display: flex;
   align-items: center;
   gap: 1rem;
   cursor: pointer;
   width: fit-content;
   border-bottom: 0.15rem solid #fff;
+  text-decoration: none;
 }
 
-.services__contact__info > span > p {
+.services__contact__info > span > a > p {
   color: #fff;
   font-size: 1.6rem;
 }
 
-.services__contact__info > span > img {
+.services__contact__info > span > a > img {
   height: 1.2rem;
 }
 
@@ -115,6 +116,7 @@
 }
 
 .services__info > p {
+  text-align: center;
   color: #fff;
   font-size: 1.8rem;
   margin-top: 8rem;
@@ -123,7 +125,7 @@
 
 .services__info__numbers {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 5rem;
   margin-top: 50vh;
   margin-left: 25vw;
@@ -147,7 +149,7 @@
   font-weight: 500;
 }
 
-@media screen and (max-width: 800px) and (min-width: 641px) {
+@media screen and (max-width: 810px) and (min-width: 641px) {
   .services__contact {
     padding: 2rem;
     flex-direction: column;
@@ -194,6 +196,7 @@
 
   .services__info__numbers {
     flex-direction: column;
+    align-items: center;
     margin-top: 3rem;
     margin-left: 3rem;
     gap: 4rem;
@@ -201,6 +204,7 @@
 
   .services__info__numbers > span > h2 {
     font-size: 8rem;
+    text-align: center;
   }
 
   .services__info__numbers > span > p {
@@ -276,6 +280,7 @@
 
   .services__info__numbers {
     flex-direction: column;
+    align-items: center;
     margin-top: 3rem;
     margin-left: 3rem;
     gap: 4rem;
@@ -283,6 +288,7 @@
 
   .services__info__numbers > span > h2 {
     font-size: 5rem;
+    text-align: center;
   }
 
   .services__info__numbers > span > p {
