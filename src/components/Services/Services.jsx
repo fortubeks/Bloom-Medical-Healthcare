@@ -4,11 +4,9 @@ import planIcon from '../../assets/pajamas_planning.svg';
 import documentIcon from '../../assets/mdi_paper-text-outline.svg';
 import financeIcon from '../../assets/mdi_finance.svg';
 import gadgets from '../../assets/gadgets.png';
-import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Services = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="services">
       <h1>WHAT WE OFFER</h1>
@@ -17,9 +15,19 @@ const Services = () => {
           <h2>
             Seamless Service <br /> to transform your business
           </h2>
-          <span onClick={() => navigate('#about')}>
-            <p>Contact Us</p>
-            <img src={arrow} alt="arrow icon" />
+          <span>
+            <NavLink
+              to="/"
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              <p>Contact Us</p>
+              <img src={arrow} alt="arrow icon" />
+            </NavLink>
           </span>
         </div>
         <div className="services__contact__image">

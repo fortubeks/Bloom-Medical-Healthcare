@@ -4,9 +4,9 @@ import {
   Blog,
   Navbar,
   Partners,
-  Reviews,
+  // Reviews,
   Services,
-  Team,
+  // Team,
 } from '../../components';
 import arrow from '../../assets/arrowDown.svg';
 
@@ -35,9 +35,9 @@ const Home = () => {
       </div>
       <About />
       <Services />
-      <Reviews />
+      {/* <Reviews /> */}
       <Blog />
-      <Team />
+      {/* <Team /> */}
       <Partners />
     </>
   );
